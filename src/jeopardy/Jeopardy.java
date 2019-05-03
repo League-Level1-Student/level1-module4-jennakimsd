@@ -30,7 +30,7 @@ import javax.swing.JPanel;
 public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
-	private JButton thirdButton, fourthButton;
+	private JButton thirdButton, fourthButton, fifthButton;
 	private JPanel quizPanel;
 	private int score = 0;
 	private JLabel scoreBox = new JLabel("0");
@@ -72,7 +72,15 @@ public class Jeopardy implements ActionListener {
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
-
+		thirdButton= createButton("$600");
+		quizPanel.add(thirdButton);
+		thirdButton.addActionListener(this);
+		fourthButton= createButton("$800");
+		quizPanel.add(thirdButton);
+		fourthButton.addActionListener(this);
+		fifthButton= createButton("$1000");
+		quizPanel.add(fifthButton);
+		fifthButton.addActionListener(this);
 		/*
 		 * [optional] Use the showImage or playSound methods when the user answers a
 		 * question
@@ -107,15 +115,29 @@ public class Jeopardy implements ActionListener {
 			askQuestion("is water wet", "no", 200);
 			// Complete the code in the askQuestion() method. When you play the game, the
 			// score should change.
+			firstButton.setText(" ");
 		}
 		// If the buttonPressed was the secondButton
-
+		else if (buttonPressed == secondButton) {
 		// Call the askQuestion() method with a harder question
-
+			askQuestion("is water blue", "no", 400);
 		// Clear the text on the button that was pressed (set the button text to
 		// nothing)
-
-	}
+			secondButton.setText(" ");	
+		}
+		else if (buttonPressed == thirdButton) {
+			askQuestion("what came first the chicken or the egg", "the egg", 600);
+			thirdButton.setText(" ");	
+			}
+		else if (buttonPressed == fifthButton) {
+			askQuestion("what color is the sky", "blue", 800);
+			fifthButton.setText(" ");	
+			}
+		else {
+			askQuestion("what color is my hair", "brown", 1000);
+			thirdButton.setText(" ");	
+				}
+		}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 
@@ -129,19 +151,22 @@ public class Jeopardy implements ActionListener {
 		// sound variable
 		sound.stop();
 		// If the answer is correct
-
+		if(answer.equals(correctAnswer)) {
 		// Increase the score by the prizeMoney
-
+			score= score+ prizeMoney;
 		// Pop up a message to tell the user they were correct
-
+			JOptionPane.showMessageDialog(null, "you were correct");
+		}
 		// Otherwise
-
+		else {
 		// Decrement the score by the prizeMoney
-
+			score= score-prizeMoney;
 		// Pop up a message to tell the user they were wrong and give them the correct
 		// answer
-
+			JOptionPane.showMessageDialog(null, "you were wrong the correct answer is "+ correctAnswer);
+		}
 		// Call the updateScore() method
+		updateScore();
 
 	}
 
