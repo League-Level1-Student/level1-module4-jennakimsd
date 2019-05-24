@@ -17,6 +17,6 @@ public class FortuneTellerRunner {
 	static void begin() {
 		// Welcome the user. Give them a hint for the secret location.
 		JOptionPane.showMessageDialog(null, "Welcome!!");
-		JOptionPane.showMessageDialog(null, "Your secret location is near the top");
+		JOptionPane.showMessageDialog(null, "Your secret location is in the ball");
 	}
 }

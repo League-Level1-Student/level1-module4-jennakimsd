@@ -11,6 +11,7 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JApplet;
@@ -42,12 +43,13 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
 		int mouseX = e.getX();
 		int mouseY = e.getY();
 		// 5. Print the mouseX variable
-		System.out.println(mouseX & mouseY);
+		System.out.println(mouseX);
+		System.out.println(mouseY);
 		// 6. Add the mouseY variable to the previous line so that it prints out too (no
 		// new line)
 		// 7. Adjust your secret location co-ordinates here:
-		int secretLocationX = 0;
-		int secretLocationY = 0;
+		int secretLocationX = 255;
+		int secretLocationY = 355;
 		/**
 		 * If the mouse co-ordinates and secret location are close, we'll let them ask a
 		 * question.
@@ -61,9 +63,25 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
 			sound.play();
 			// 11. Use the pause() method below to wait until your music has finished
 			pause(10);
-			// 12. Insert your completed Magic 8 ball code here
-
+			}
 		}
+			// 12. Insert your completed Magic 8 ball code here
+			public void Magic8Ball() {
+				int randy = new Random().nextInt(4);
+				JOptionPane.showInputDialog("enter a message for the magic 8 ball");
+				if (randy== 0) {
+					JOptionPane.showMessageDialog(null, "yes");
+				}
+				if (randy== 1) {
+					JOptionPane.showMessageDialog(null, "no");
+				}
+				if (randy== 2) {
+					JOptionPane.showMessageDialog(null, "maybe you should ask google");
+				}
+				if (randy== 3) {
+					JOptionPane.showMessageDialog(null, "i'm not sure, please try again later");
+				}
+
 
 	}
 
