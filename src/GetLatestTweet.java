@@ -40,6 +40,7 @@ public class GetLatestTweet implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("tweet, tweet");
+		System.out.println(getLatestTweet(textfield.getText()));
 	}
 
 	//3.Download 2 jars, add them to your project, then add them to your project’s build path.
