@@ -21,6 +21,8 @@ public class WackAMole implements ActionListener {
 	}
 
 	private void createUI() {
+		frame = new JFrame();
+		panel= new JPanel();
 		Random random = new Random();
 		int moleLocation = random.nextInt(24);
 		for(int i= 0; i<23; i++) {
